@@ -1,0 +1,30 @@
+services:
+  web:
+    image: php:8.2-apache
+    ports:
+      - "8090:80"
+    volumes:
+      - ./web:/var/www/html
+    networks:
+      - clinic-net
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:10.6
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: clinicdb
+      MYSQL_USER: clinic_user
+      MYSQL_PASSWORD: clinic_pass
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - clinic-net
+
+networks:
+  clinic-net:
+
+volumes:
+  db_data:

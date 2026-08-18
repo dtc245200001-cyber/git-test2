@@ -1,6 +1,7 @@
 students = [
     {"id": 1, "name": "Nguyen Van A", "email": "a@example.com"},
-    {"id": 2, "name": "Tran Thi B", "email": "b@example.com"}
+    {"id": 2, "name": "Tran Thi B", "email": "b@example.com"},
+    {"id": 3, "name": "Tran Thi C", "email": "c@example.com"}
 ]
 
 def get_students():
